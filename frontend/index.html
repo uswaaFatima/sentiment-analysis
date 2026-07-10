@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sentiment Analysis — Read the Vibe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-mood="idle" data-screen="input">
+
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="bgb bgb1"></span>
+    <span class="bgb bgb2"></span>
+    <span class="bgb bgb3"></span>
+  </div>
+
+  <main class="app">
+
+    <!-- ================= SCREEN 1 — INPUT ================= -->
+    <section class="screen active" id="screen-input">
+
+      <div class="mascot" id="mascot-input">
+        <div class="face">
+          <span class="ear ear-l"></span>
+          <span class="ear ear-r"></span>
+          <span class="eye eye-l"></span>
+          <span class="eye eye-r"></span>
+          <span class="cheek cheek-l"></span>
+          <span class="cheek cheek-r"></span>
+          <span class="mouth" id="mouth-input"></span>
+        </div>
+      </div>
+
+      <h1 class="headline">
+        <span>S</span><span>e</span><span>n</span><span>t</span><span>i</span><span>m</span><span>e</span><span>n</span><span>t</span>&nbsp;<span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>s</span><span>i</span><span>s</span>
+      </h1>
+      <p class="subtitle">Tell me what's on your mind — I'll read the vibe in your words. ✨</p>
+
+      <div class="input-card">
+        <label for="text-input" class="visually-hidden">Your statement</label>
+        <textarea
+          id="text-input"
+          placeholder="I can't stop smiling today because..."
+          maxlength="500"
+          rows="4"
+        ></textarea>
+
+        <div class="input-footer">
+          <span class="char-count mono"><span id="char-count">0</span>/500</span>
+          <button id="analyze-btn" type="button">
+            <span class="spark" aria-hidden="true">✦</span>
+            <span class="btn-label">Read My Vibe</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <p class="error-banner" id="error-banner" role="alert"></p>
+    </section>
+
+    <!-- ================= SCREEN 2 — RESULT ================= -->
+    <section class="screen" id="screen-result">
+
+      <button class="back-btn" id="back-btn">
+        <span aria-hidden="true">←</span> New reading
+      </button>
+
+      <div class="mascot big" id="mascot-result">
+        <div class="face">
+          <span class="ear ear-l"></span>
+          <span class="ear ear-r"></span>
+          <span class="eye eye-l"></span>
+          <span class="eye eye-r"></span>
+          <span class="cheek cheek-l"></span>
+          <span class="cheek cheek-r"></span>
+          <span class="mouth" id="mouth-result"></span>
+        </div>
+      </div>
+
+      <p class="result-eyebrow mono">READING COMPLETE</p>
+      <h2 class="verdict-word" id="verdict-word">—</h2>
+      <p class="verdict-sub" id="verdict-sub"></p>
+
+      <div class="strip-wrap">
+        <canvas id="strip" width="640" height="140"></canvas>
+        <div class="stamp" id="stamp"><span>ANALYZED</span></div>
+      </div>
+
+      <div class="confidence-row">
+        <div class="confidence-track">
+          <div class="confidence-fill" id="confidence-fill"></div>
+        </div>
+        <div class="confidence-labels mono">
+          <span>CONFIDENCE</span>
+          <span id="confidence-value">—</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
